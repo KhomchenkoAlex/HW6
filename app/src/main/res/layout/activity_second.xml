@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,8 +8,66 @@
     tools:context=".SecondActivity">
 
     <TextView
+        android:id="@+id/date_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="03.12.2018"/>
+
+    <LinearLayout
+        android:id="@+id/temp_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date_view">
+
+        <TextView
+            android:id="@+id/max_temp_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Макс. температура: " />
+
+        <TextView
+            android:id="@+id/max_temp_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="8dp"
+            android:text="2C" />
+
+        <TextView
+            android:id="@+id/min_templ_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:text="Мин. температура: " />
+
+        <TextView
+            android:id="@+id/min_temp_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-2C" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/humidity_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SECOND VIEW"/>
+        android:layout_below="@+id/temp_layout"
+        android:paddingEnd="8dp"
+        android:text="Вологість: "/>
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/humidity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/temp_layout"
+        android:layout_toEndOf="@+id/humidity_label"
+        android:text="100%"/>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/humidity"
+        android:text="rain"/>
+
+</RelativeLayout>

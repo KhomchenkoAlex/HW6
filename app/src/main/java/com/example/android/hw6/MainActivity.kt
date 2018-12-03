@@ -22,27 +22,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        forecast_recycler_view.layoutManager = LinearLayoutManager(this)
-        forecast_recycler_view.addItemDecoration(ItemDecorator())
-        forecast_recycler_view.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+        forecast_recycler_view.let {
+            it.layoutManager = LinearLayoutManager(this)
+            it.addItemDecoration(ItemDecorator())
+            it.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
+        }
         val wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
         val wifiInfo = wifiManager.connectionInfo
         if (wifiInfo.supplicantState == SupplicantState.UNINITIALIZED) {
             Toast.makeText(this, "No wifi", Toast.LENGTH_LONG).show()
         }
-        MyTask().execute()
-
+        HttpHandler(Units.IMPERIAL).execute()
     }
 
-    inner class MyTask : AsyncTask<Void, Void, String>() {
+    inner class HttpHandler(val units: Units) : AsyncTask<Void, Void, String>() {
 
-        var weatherForecast: WeatherForecast? = null
+        private var weatherForecast: WeatherForecast? = null
         private val httpClient = OkHttpClient()
         private val gson = Gson()
 
         override fun doInBackground(vararg params: Void): String {
             val request = Request.Builder()
-                    .url("http://api.openweathermap.org/data/2.5/forecast?q=Kiev&mode=json&APPID=5ec0b56c5a95e5a427e11f3fb479e689")
+                    .url(Constants.BASE_URL + units.value)
                     .build()
             val response = httpClient.newCall(request).execute()
             return response.body().string()

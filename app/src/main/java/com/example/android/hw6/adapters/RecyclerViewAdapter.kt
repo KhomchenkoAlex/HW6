@@ -2,7 +2,6 @@ package com.example.android.hw6.adapters
 
 import android.content.Context
 import android.content.Intent
-import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -36,15 +35,19 @@ class RecyclerViewAdapter(
         private val itemTemp: TextView = itemView.findViewById(R.id.temperature)
         private val itemWeather: TextView = itemView.findViewById(R.id.weather)
 
+        var itemForecast: Forecast? = null
+
         init {
             itemView.setOnClickListener(this)
         }
 
         override fun onClick(itemView: View) {
             val intent = Intent(context ,SecondActivity::class.java)
-            startActivity(context, intent, null) }
+            intent.putExtra("itemForecast", itemForecast)
+            context.startActivity(intent) }
 
         fun onBind(item: Forecast) {
+            itemForecast = item
             itemDate.text = item.date
             itemTemp.text = item.main.temp.toString()
             itemWeather.text = item.weather.first().main
