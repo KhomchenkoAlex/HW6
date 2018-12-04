@@ -4,6 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E0F2F1"
     tools:context=".ThirdActivity">
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="16dp">
+
+        <RadioButton
+            android:id="@+id/celsius_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/celsius_string"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp" />
+
+        <RadioButton
+            android:id="@+id/fahrenheit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/fahrenheit_string"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp" />
+
+        <RadioButton
+            android:id="@+id/kelvin_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/kelvin_string"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/current_temp_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="64sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
