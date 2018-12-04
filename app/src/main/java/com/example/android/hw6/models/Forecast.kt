@@ -6,9 +6,9 @@ import java.io.Serializable
 data class Forecast(
         @SerializedName("dt_txt")
         val date: String,
-        @SerializedName("main")
+        //@SerializedName("main")
         val main: Main,
         val weather: List<Weather>,
-        @SerializedName("wind")
+        //@SerializedName("wind")
         val wind: Wind) : Serializable {
 }

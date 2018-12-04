@@ -2,7 +2,6 @@ package com.example.android.hw6
 
 import android.content.Context
 import android.content.Intent
-import android.net.wifi.SupplicantState
 import android.net.wifi.WifiManager
 import android.os.AsyncTask
 import android.os.Bundle
@@ -13,7 +12,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.example.android.hw6.adapters.RecyclerViewAdapter
+import com.example.android.hw6.decorators.ItemDecorator
 import com.example.android.hw6.models.WeatherForecast
+import com.example.android.hw6.utils.Constants
+import com.example.android.hw6.utils.Units
 import com.google.gson.Gson
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
@@ -35,8 +37,8 @@ class MainActivity : AppCompatActivity() {
         }
         val wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
         val wifiInfo = wifiManager.connectionInfo
-        if (wifiInfo.supplicantState == SupplicantState.UNINITIALIZED) {
-            Toast.makeText(this, "No wifi", Toast.LENGTH_LONG).show()
+        if (wifiInfo.networkId == -1) {
+            Toast.makeText(this, "No internet connection", Toast.LENGTH_LONG).show()
         }
     }
 

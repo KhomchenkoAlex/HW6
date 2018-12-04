@@ -42,9 +42,10 @@ class RecyclerViewAdapter(
         }
 
         override fun onClick(itemView: View) {
-            val intent = Intent(context ,SecondActivity::class.java)
+            val intent = Intent(context, SecondActivity::class.java)
             intent.putExtra("itemForecast", itemForecast)
-            context.startActivity(intent) }
+            context.startActivity(intent)
+        }
 
         fun onBind(item: Forecast) {
             itemForecast = item

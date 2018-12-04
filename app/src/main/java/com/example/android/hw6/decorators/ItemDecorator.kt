@@ -1,4 +1,4 @@
-package com.example.android.hw6
+package com.example.android.hw6.decorators
 
 import android.graphics.Rect
 import android.support.v7.widget.RecyclerView

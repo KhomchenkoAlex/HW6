@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Weather Forecast</string>
     <string name="units_settings">Налаштування</string>
+    <string name="max_temp_string">Макс. температура: </string>
+    <string name="min_temp_string">Мін. температура: </string>
+    <string name="wind_string">Вітер: </string>
+    <string name="humidity">Вологість: </string>
+    <string name="celsius_string">Цельсій</string>
+    <string name="fahrenheit_string">Фаренгейт</string>
+    <string name="kelvin_string">Кельвін</string>
 </resources>

@@ -6,6 +6,6 @@ import java.io.Serializable
 data class WeatherForecast(
         @SerializedName("cod")
         val statusCode: Int,
-        @SerializedName("list")
+        //@SerializedName("list")
         val list: List<Forecast>): Serializable {
 }

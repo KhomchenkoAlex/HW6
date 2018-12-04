@@ -16,16 +16,16 @@ class SecondActivity : AppCompatActivity() {
 
         val forecast = intent.getSerializableExtra("itemForecast") as Forecast
         val sharedPreferences = getSharedPreferences("Units", Context.MODE_PRIVATE).getInt("units", 0)
-        when(sharedPreferences){
-            1-> degreeSuffix = "C"
-            2-> degreeSuffix = "F"
+        when (sharedPreferences) {
+            1 -> degreeSuffix = "C"
+            2 -> degreeSuffix = "F"
         }
 
         date_view.text = forecast.date
-        max_temp_value.text = forecast.main.maxTemp.toString() + degreeSuffix
-        min_temp_value.text = forecast.main.minTemp.toString()+ degreeSuffix
-        humidity.text = forecast.main.humidity.toString()+ "%"
+        max_temp_value.text = "${forecast.main.maxTemp}${degreeSuffix}"
+        min_temp_value.text = "${forecast.main.minTemp}${degreeSuffix}"
+        humidity.text = "${forecast.main.humidity}%"
         description.text = forecast.weather.first().description
-        wind_value.text = forecast.wind.speed.toString()
+        wind_value.text = "${forecast.wind.speed}"
     }
 }
