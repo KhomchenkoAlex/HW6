@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,7 +13,7 @@
         android:gravity="center_horizontal"
         android:text="03.12.2018"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/temp_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,44 +29,67 @@
             android:id="@+id/max_temp_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingEnd="8dp"
+            android:layout_toEndOf="@id/max_temp_label"
             android:text="2C" />
 
         <TextView
-            android:id="@+id/min_templ_label"
+            android:id="@+id/min_temp_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="8dp"
+            android:layout_below="@+id/max_temp_label"
             android:text="Мин. температура: " />
 
         <TextView
             android:id="@+id/min_temp_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/max_temp_label"
+            android:layout_toEndOf="@id/min_temp_label"
             android:text="-2C" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/wind_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/temp_layout">
+        <TextView
+            android:id="@+id/wind_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вітер: "/>
+        <TextView
+            android:id="@+id/wind_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/wind_label"
+            android:text="wind"/>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/humidity_label"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/humidity_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/temp_layout"
-        android:paddingEnd="8dp"
-        android:text="Вологість: "/>
-
-    <TextView
-        android:id="@+id/humidity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/temp_layout"
-        android:layout_toEndOf="@+id/humidity_label"
-        android:text="100%"/>
+        android:layout_below="@+id/wind_layout">
+        <TextView
+            android:id="@+id/humidity_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingEnd="8dp"
+            android:text="Вологість: "/>
+        <TextView
+            android:id="@+id/humidity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/humidity_label"
+            android:text="100%"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/humidity"
+        android:layout_below="@+id/humidity_layout"
         android:text="rain"/>
 
 </RelativeLayout>

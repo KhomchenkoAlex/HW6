@@ -8,5 +8,7 @@ data class Forecast(
         val date: String,
         @SerializedName("main")
         val main: Main,
-        val weather: List<Weather>) : Serializable {
+        val weather: List<Weather>,
+        @SerializedName("wind")
+        val wind: Wind) : Serializable {
 }
